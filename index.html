@@ -2,43 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Python Counter</title>
-
-  <!-- Load Pyodide -->
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <title>Java Counter</title>
 </head>
 
 <body>
-  <h1>Python Counter</h1>
+  <h1>Java</h1>
 
-  <p>Count: <span id="count">0</span></p>
+  <p>Count: </p>
   <button onclick="increment()">Click me</button>
 
-  <script>
-    let pyodideReady = false;
-
-    async function loadPyodideAndPackages() {
-      window.pyodide = await loadPyodide();
-      pyodideReady = true;
-
-      // Initialize Python variable
-      pyodide.runPython("count = 0");
-    }
-
-    loadPyodideAndPackages();
-
-    function increment() {
-      if (!pyodideReady) {
-        alert("Python is still loading...");
-        return;
-      }
-
-      pyodide.runPython(`
-count += 1
-`);
-      const count = pyodide.runPython("count");
-      document.getElementById("count").textContent = count;
-    }
+  <script src="script.js">
   </script>
 </body>
 </html>
